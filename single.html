@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang=id>
+
+<head>
+    <meta charset=utf-8>
+    <meta http-equiv=x-ua-compatible content="IE=edge">
+    <meta name=viewport content="width=device-width,initial-scale=1">
+    <title>Melihat Query SQL Yang Dieksekusi Laravel - sysym.dev</title>
+    <meta name=description
+        content="Melihat query database yang dieksekusi dapat membantu banyak hal, contohnya membantu debugging.">
+    <meta property="og:title" content="Melihat Query SQL Yang Dieksekusi Laravel">
+    <meta property="og:description"
+        content="Melihat query database yang dieksekusi dapat membantu banyak hal, contohnya membantu debugging.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://sysym.dev/melihat-query-sql-yang-dieksekusi-laravel/">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2023-10-15T13:00:00+07:00">
+    <meta property="article:modified_time" content="2023-10-15T13:00:00+07:00">
+    <meta name=twitter:card content="summary">
+    <meta name=twitter:title content="Melihat Query SQL Yang Dieksekusi Laravel">
+    <meta name=twitter:description
+        content="Melihat query database yang dieksekusi dapat membantu banyak hal, contohnya membantu debugging.">
+    <meta itemprop=name content="Melihat Query SQL Yang Dieksekusi Laravel">
+    <meta itemprop=description
+        content="Melihat query database yang dieksekusi dapat membantu banyak hal, contohnya membantu debugging.">
+    <meta itemprop=datePublished content="2023-10-15T13:00:00+07:00">
+    <meta itemprop=dateModified content="2023-10-15T13:00:00+07:00">
+    <meta itemprop=wordCount content="540">
+    <meta itemprop=keywords content="laravel,">
+    <link rel=canonical href=https://sysym.dev/melihat-query-sql-yang-dieksekusi-laravel />
+    <link rel=icon type=image/png sizes=32x32 href=https://sysym.dev/images/favicon/favicon-32x32.png>
+    <link rel=icon type=image/png sizes=16x16 href=https://sysym.dev/images/favicon/favicon-16x16.png>
+    <link rel=preconnect href=https://fonts.googleapis.com>
+    <link rel=preconnect href=https://fonts.gstatic.com crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel=stylesheet>
+    <link rel=stylesheet href=style.css>
+</head>
+
+<body>
+    <nav class="bg-sky-900 py-4 text-sky-100">
+        <div class="max-w-2xl mx-auto flex items-center justify-between relative"><a class=font-bold
+                href=https://sysym.dev />sysym.dev</a>
+            <button id=toggle-nav-btn
+                class="sm:hidden rounded-md px-2 py-1 font-semibold text-sky-100 shadow-sm hover:bg-sky-700"><svg
+                    id="hide-nav-btn-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                    stroke-width="1.5" stroke="currentcolor" class="hidden w-4 h-4">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                </svg><svg id="show-nav-btn-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                    stroke-width="1.5" stroke="currentcolor" class="w-4 h-4">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg></button>
+            <ul id=nav
+                class="hidden sm:flex gap-x-2 absolute top-8 right-4 flex-col bg-white rounded-md py-2 sm:static sm:bg-transparent sm:rounded-none sm:py-0 sm:flex-row">
+                <li><a href=/about/
+                        class="rounded-none px-2.5 py-1.5 text-sm font-semibold text-sky-900 block hover:bg-gray-100 sm:rounded-md sm:inline sm:shadow-sm sm:hover:bg-sky-700 sm:text-sky-100">About</a>
+                </li>
+                <li><a href=/posts/
+                        class="rounded-none px-2.5 py-1.5 text-sm font-semibold text-sky-900 block hover:bg-gray-100 sm:rounded-md sm:inline sm:shadow-sm sm:hover:bg-sky-700 sm:text-sky-100">Posts</a>
+                </li>
+                <li><a href=/tags/
+                        class="rounded-none px-2.5 py-1.5 text-sm font-semibold text-sky-900 block hover:bg-gray-100 sm:rounded-md sm:inline sm:shadow-sm sm:hover:bg-sky-700 sm:text-sky-100">Tags</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <article class="max-w-2xl mx-auto pb-12">
+        <div class="prose prose-sky mt-12">
+            <p class="flex items-center gap-x-4"><span>October 15, 2023</span><svg viewBox="0 0 2 2"
+                    class="h-0.5 w-0.5 fill-current text-sky-500">
+                    <circle cx="1" cy="1" r="1" />
+                </svg>
+                <a href=/tags/laravel>laravel</a>
+            </p>
+            <h1 class=mt-0>Melihat Query SQL Yang Dieksekusi Laravel</h1>
+            <p>Melihat query database yang dieksekusi dapat membantu banyak hal, contohnya membantu debugging.</p>
+            <p>Ada beberapa tool yang bisa digunakan untuk melihat query yang dieksekusi laravel, seperti <a
+                    href=https://laravel.com/docs/10.x/telescope>telescope</a> atau <a
+                    href=https://github.com/barryvdh/laravel-debugbar>debugbar</a>.</p>
+            <p>Bisa juga dengan manual tanpa menggunakan tool, ada beberapa cara yang bisa dicoba, berikut
+                penjelasannya.</p>
+            <h2 id=tosql-dan-torawsql>toSql dan toRawSql</h2>
+            <p><code>toSql</code> adalah method pada query builder yang digunakan untuk melihat query sql yang akan
+                dieksekusi.</p>
+            <p>Contoh pada eloquent.</p>
+            <div class=highlight>
+                <pre class=chroma><code class=language-php data-lang=php><span class=nx>dd</span><span class=p>(</span><span class=nx>Product</span><span class=o>::</span><span class=na>skip</span><span class=p>(</span><span class=mi>10</span><span class=p>)</span><span class=o>-&gt;</span><span class=na>take</span><span class=p>(</span><span class=mi>10</span><span class=p>)</span><span class=o>-&gt;</span><span class=na>latest</span><span class=p>()</span><span class=o>-&gt;</span><span class=na>toSql</span><span class=p>());</span>
+<span class=c1>// &#34;select * from `products` order by `created_at` desc limit 10 offset 10&#34;
+</span></code></pre>
+            </div>
+            <p>Contoh pada query builder.</p>
+            <div class=highlight>
+                <pre class=chroma><code class=language-php data-lang=php><span class=nx>dd</span><span class=p>(</span><span class=nx>DB</span><span class=o>::</span><span class=na>table</span><span class=p>(</span><span class=s1>&#39;products&#39;</span><span class=p>)</span><span class=o>-&gt;</span><span class=na>skip</span><span class=p>(</span><span class=mi>10</span><span class=p>)</span><span class=o>-&gt;</span><span class=na>take</span><span class=p>(</span><span class=mi>10</span><span class=p>)</span><span class=o>-&gt;</span><span class=na>latest</span><span class=p>()</span><span class=o>-&gt;</span><span class=na>toSql</span><span class=p>());</span>
+<span class=c1>// &#34;select * from `products` order by `created_at` desc limit 10 offset 10&#34;
+</span></code></pre>
+            </div>
+            <p>Jika ditambahkan binding value seperti menambahkan method <code>where</code> pada query, binding valuenya
+                tidak akan tampil.</p>
+            <div class=highlight>
+                <pre class=chroma><code class=language-php data-lang=php><span class=nx>dd</span><span class=p>(</span><span class=nx>Product</span><span class=o>::</span><span class=na>skip</span><span class=p>(</span><span class=mi>10</span><span class=p>)</span><span class=o>-&gt;</span><span class=na>take</span><span class=p>(</span><span class=mi>10</span><span class=p>)</span><span class=o>-&gt;</span><span class=na>latest</span><span class=p>()</span><span class=o>-&gt;</span><span class=na>whereId</span><span class=p>(</span><span class=mi>10</span><span class=p>)</span><span class=o>-&gt;</span><span class=na>toSql</span><span class=p>());</span>
+<span class=c1>// &#34;select * from `products` where `id` = ? order by `created_at` desc limit 10 offset 10&#34;
+</span></code></pre>
+            </div>
+            <p>Jika tetap ingin ditampilkan binding valuenya, gunakan method <code>toRawSql</code>.</p>
+            <div class=highlight>
+                <pre class=chroma><code class=language-php data-lang=php><span class=nx>dd</span><span class=p>(</span><span class=nx>Product</span><span class=o>::</span><span class=na>skip</span><span class=p>(</span><span class=mi>10</span><span class=p>)</span><span class=o>-&gt;</span><span class=na>take</span><span class=p>(</span><span class=mi>10</span><span class=p>)</span><span class=o>-&gt;</span><span class=na>latest</span><span class=p>()</span><span class=o>-&gt;</span><span class=na>whereId</span><span class=p>(</span><span class=mi>10</span><span class=p>)</span><span class=o>-&gt;</span><span class=na>toRawSql</span><span class=p>());</span>
+<span class=c1>// &#34;select * from `products` where `id` = 10 order by `created_at` desc limit 10 offset 10&#34;
+</span></code></pre>
+            </div>
+            <p>Jika meload relasi, query untuk meload relasi tidak akan tampil karena <code>toSql</code> dan
+                <code>toRawSql</code> hanya menampilkan query utama pada tabel.</p>
+            <div class=highlight>
+                <pre class=chroma><code class=language-php data-lang=php><span class=nx>dd</span><span class=p>(</span><span class=nx>Product</span><span class=o>::</span><span class=na>with</span><span class=p>(</span><span class=s1>&#39;productPrices&#39;</span><span class=p>)</span><span class=o>-&gt;</span><span class=na>skip</span><span class=p>(</span><span class=mi>10</span><span class=p>)</span><span class=o>-&gt;</span><span class=na>take</span><span class=p>(</span><span class=mi>10</span><span class=p>)</span><span class=o>-&gt;</span><span class=na>latest</span><span class=p>()</span><span class=o>-&gt;</span><span class=na>toSql</span><span class=p>());</span>
+<span class=c1>// &#34;select * from `products` order by `created_at` desc limit 10 offset 10&#34;
+</span><span class=c1>// query untuk meload `productPrices` tidak tampil
+</span></code></pre>
+            </div>
+            <p>Untuk menampilkannya bisa menggunakan <a href=#DB::getQueryLog>DB::getQueryLog</a></p>
+            <h2 id=dd-dan-ddrawsql>dd dan ddRawSql</h2>
+            <p>Pada contoh sebelumnya query yang akan dieksekusi di-dump menggunakan <code>dd</code>, sedangkan pada
+                query builder sendiri sudah ada method untuk menge-dump query yang akan dieksekusi, yaitu
+                <code>dd</code> dan <code>ddRawSql</code>.</p>
+            <p><code>queryBuilder->dd()</code> secara otomatis memanggil <code>toSql</code>.
+                <code>queryBuilder->toRawSql()</code> secara otomatis memanggil <code>toRawSql</code>.</p>
+            <p>Contoh.</p>
+            <div class=highlight>
+                <pre class=chroma><code class=language-php data-lang=php><span class=nx>Product</span><span class=o>::</span><span class=na>skip</span><span class=p>(</span><span class=mi>10</span><span class=p>)</span><span class=o>-&gt;</span><span class=na>take</span><span class=p>(</span><span class=mi>10</span><span class=p>)</span><span class=o>-&gt;</span><span class=na>latest</span><span class=p>()</span><span class=o>-&gt;</span><span class=na>whereId</span><span class=p>(</span><span class=mi>10</span><span class=p>)</span><span class=o>-&gt;</span><span class=na>dd</span><span class=p>();</span>
+<span class=c1>// &#34;select * from `products` where `id` = ? order by `created_at` desc limit 10 offset 10&#34; 
+</span><span class=c1></span><span class=k>array</span><span class=o>:</span><span class=mi>1</span> <span class=p>[</span>
+  <span class=mi>0</span> <span class=o>=&gt;</span> <span class=mi>10</span>
+<span class=p>]</span>
+</code></pre>
+            </div>
+            <div class=highlight>
+                <pre class=chroma><code class=language-php data-lang=php><span class=nx>Product</span><span class=o>::</span><span class=na>skip</span><span class=p>(</span><span class=mi>10</span><span class=p>)</span><span class=o>-&gt;</span><span class=na>take</span><span class=p>(</span><span class=mi>10</span><span class=p>)</span><span class=o>-&gt;</span><span class=na>latest</span><span class=p>()</span><span class=o>-&gt;</span><span class=na>whereId</span><span class=p>(</span><span class=mi>10</span><span class=p>)</span><span class=o>-&gt;</span><span class=na>ddRawSql</span><span class=p>();</span>
+<span class=c1>// &#34;select * from `products` where `id` = 10 order by `created_at` desc limit 10 offset 10&#34;
+</span></code></pre>
+            </div>
+            <blockquote>
+                <p><code>dd</code> juga menampilkan semua binding value pada query</p>
+            </blockquote>
+            <h2 id=dbgetquerylog>DB::getQueryLog</h2>
+            <p><code>getQueryLog</code> adalah method yang mengembalikan array dari semua query yang telah dieksekusi.
+            </p>
+            <p>Untuk menggunakannya, pastikan untuk mengaktifkan query logging melalui <code>enableQueryLog</code>.</p>
+            <div class=highlight>
+                <pre class=chroma><code class=language-php data-lang=php><span class=nx>DB</span><span class=o>::</span><span class=na>enableQueryLog</span><span class=p>();</span>
+
+<span class=nv>$supplier</span> <span class=o>=</span> <span class=nx>Supplier</span><span class=o>::</span><span class=na>latest</span><span class=p>()</span><span class=o>-&gt;</span><span class=na>first</span><span class=p>();</span>
+<span class=nx>Product</span><span class=o>::</span><span class=na>with</span><span class=p>(</span><span class=s1>&#39;productPrices&#39;</span><span class=p>)</span><span class=o>-&gt;</span><span class=na>whereSupplierId</span><span class=p>(</span><span class=nv>$supplier</span><span class=o>-&gt;</span><span class=na>id</span><span class=p>)</span><span class=o>-&gt;</span><span class=na>latest</span><span class=p>()</span><span class=o>-&gt;</span><span class=na>get</span><span class=p>();</span>
+
+<span class=nx>dd</span><span class=p>(</span><span class=nx>DB</span><span class=o>::</span><span class=na>getQueryLog</span><span class=p>());</span>
+
+<span class=c1>// array:3 [
+</span><span class=c1>//     0 =&gt; array:3 [
+</span><span class=c1>//         &#34;query&#34; =&gt; &#34;select * from `suppliers` order by `created_at` desc limit 1&#34;
+</span><span class=c1>//         &#34;bindings&#34; =&gt; []
+</span><span class=c1>//         &#34;time&#34; =&gt; 19.32
+</span><span class=c1>//     ]
+</span><span class=c1>//     1 =&gt; array:3 [
+</span><span class=c1>//         &#34;query&#34; =&gt; &#34;select * from `products` where `supplier_id` = ? order by `created_at` desc&#34;
+</span><span class=c1>//         &#34;bindings&#34; =&gt; array:1 [
+</span><span class=c1>//         0 =&gt; 1
+</span><span class=c1>//         ]
+</span><span class=c1>//         &#34;time&#34; =&gt; 4.86
+</span><span class=c1>//     ]
+</span><span class=c1>//     2 =&gt; array:3 [
+</span><span class=c1>//         &#34;query&#34; =&gt; &#34;select * from `product_prices` where `product_prices`.`product_id` in (1, 2)&#34;
+</span><span class=c1>//         &#34;bindings&#34; =&gt; []
+</span><span class=c1>//         &#34;time&#34; =&gt; 3.57
+</span><span class=c1>//     ]
+</span><span class=c1>// ]
+</span></code></pre>
+            </div>
+            <p>Hasil yang ditampilkan cukup lengkap, query yang dijalankan, binding valuenya, dan lama eksekusi.</p>
+            <h2 id=dblisten>DB::listen</h2>
+            <p><code>DB::listen</code> dapat digunakan untuk menangkap setiap query yang telah dieksekusi.</p>
+            <p><code>DB::listen</code> biasa ditambahkan di <code>boot</code> <code>AppServiceProvider</code> di file
+                <code>App\Services\AppServiceProvider.php</code>.</p>
+            <div class=highlight>
+                <pre class=chroma><code class=language-php data-lang=php><span class=o>&lt;?</span><span class=nx>php</span>
+ 
+<span class=k>namespace</span> <span class=nx>App\Providers</span><span class=p>;</span>
+ 
+<span class=k>use</span> <span class=nx>Illuminate\Database\Events\QueryExecuted</span><span class=p>;</span>
+<span class=k>use</span> <span class=nx>Illuminate\Support\Facades\DB</span><span class=p>;</span>
+<span class=k>use</span> <span class=nx>Illuminate\Support\ServiceProvider</span><span class=p>;</span>
+ 
+<span class=k>class</span> <span class=nc>AppServiceProvider</span> <span class=k>extends</span> <span class=nx>ServiceProvider</span>
+<span class=p>{</span>
+    <span class=k>public</span> <span class=k>function</span> <span class=nf>boot</span><span class=p>()</span><span class=o>:</span> <span class=nx>void</span>
+    <span class=p>{</span>
+        <span class=nx>DB</span><span class=o>::</span><span class=na>listen</span><span class=p>(</span><span class=k>function</span> <span class=p>(</span><span class=nx>QueryExecuted</span> <span class=nv>$query</span><span class=p>)</span> <span class=p>{</span>
+            <span class=nx>dd</span><span class=p>(</span><span class=nv>$query</span><span class=o>-&gt;</span><span class=na>sql</span><span class=p>,</span> <span class=nv>$query</span><span class=o>-&gt;</span><span class=na>bindings</span><span class=p>,</span> <span class=nv>$query</span><span class=o>-&gt;</span><span class=na>time</span><span class=p>)</span>
+        <span class=p>});</span>
+    <span class=p>}</span>
+<span class=p>}</span>
+</code></pre>
+            </div>
+            <p>Informasi tentang query yang didapatkan sama seperti di <code>DB::getQueryLogs</code>, kode sqlnya,
+                binding valuenya, dan lama eksekusinya.</p>
+            <h2 id=kesimpulan>Kesimpulan</h2>
+            <p>Ada beberapa cara manual yang dapat digunakan untuk melihat query yang akan diekseusi maupun yang sudah
+                dieksekusi.</p>
+            <p><code>toSql</code>, <code>toRawSql</code>, <code>dd</code>, dan <code>ddRawSql</code> digunakan untuk
+                melihat query yang akan dieksekusi.</p>
+            <p><code>DB::queryLogs</code> dan <code>DB::listen</code> digunakan untuk melihat query yang telah
+                dieksekusi.</p>
+            <h2 id=sumber>Sumber</h2>
+            <ul>
+                <li><a href=https://laravel.com/docs/10.x/database>https://laravel.com/docs/10.x/database</a></li>
+                <li><a
+                        href=https://stackoverflow.com/questions/41140975/laravel-eloquent-display-query-log>https://stackoverflow.com/questions/41140975/laravel-eloquent-display-query-log</a>
+                </li>
+            </ul>
+            <hr>
+        </div>
+    </article>
+    <footer class="bg-sky-900 py-4 text-sky-100">
+        <div class="max-w-2xl mx-auto text-center">
+            <p>Made By <a class="font-bold underline" href=https://ibrahimalanshor.github.io>Ibrahim Al Anshor</a></p>
+        </div>
+    </footer>
+    <script src=https://sysym.dev/js/main.js></script>
+</body>
+
+</html>
