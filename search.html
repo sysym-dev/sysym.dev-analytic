@@ -1,0 +1,220 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Posts - sysym.dev</title>
+
+
+<meta name="description" content="All Posts" />
+
+
+<meta property="og:title" content="Posts" />
+<meta property="og:description" content="All Posts" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://localhost:1313/posts/" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Posts"/>
+<meta name="twitter:description" content="All Posts"/>
+
+<meta itemprop="name" content="Posts">
+<meta itemprop="description" content="All Posts">
+
+    <link rel="canonical" href="http://localhost:1313/posts/" />
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/images/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/images/favicon/favicon-16x16.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <nav class="bg-sky-900 py-4 text-sky-100">
+    <div class="max-w-2xl mx-auto px-4 md:px-0 flex items-center justify-between relative">
+        <a class="font-bold" href="http://localhost:1313/">sysym.dev</a>
+        <div class="flex items-center gap-x-2">
+            <a href="/search"
+                class="sm:hidden rounded-md px-2 py-1 font-semibold text-sky-100 shadow-sm hover:bg-sky-700">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="w-4 h-4">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+                </svg>
+            </a>
+            <button id="toggle-nav-btn"
+                class="sm:hidden rounded-md px-2 py-1 font-semibold text-sky-100 shadow-sm hover:bg-sky-700">
+                <svg id="hide-nav-btn-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                    stroke-width="1.5" stroke="currentColor" class="hidden w-4 h-4">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+                <svg id="show-nav-btn-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                    stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+            </button>
+            <ul id="nav"
+                class="hidden sm:flex gap-x-2 absolute top-8 right-4 flex-col bg-white rounded-md py-2 sm:static sm:bg-transparent sm:rounded-none sm:py-0 sm:flex-row">
+                
+                <li>
+                    <a href="/about/"
+                        class="rounded-none px-2.5 py-1.5 text-sm font-semibold text-sky-900 block hover:bg-gray-100 sm:rounded-md sm:inline sm:shadow-sm sm:hover:bg-sky-700 sm:text-sky-100 ">About</a>
+                </li>
+                
+                <li>
+                    <a href="/posts/"
+                        class="rounded-none px-2.5 py-1.5 text-sm font-semibold text-sky-900 block hover:bg-gray-100 sm:rounded-md sm:inline sm:shadow-sm sm:hover:bg-sky-700 sm:text-sky-100 ">Posts</a>
+                </li>
+                
+                <li>
+                    <a href="/tags/"
+                        class="rounded-none px-2.5 py-1.5 text-sm font-semibold text-sky-900 block hover:bg-gray-100 sm:rounded-md sm:inline sm:shadow-sm sm:hover:bg-sky-700 sm:text-sky-100 ">Tags</a>
+                </li>
+                
+                <li>
+                    <a href="/search"
+                        class="hidden sm:block px-2.5 py-1.5 text-sm font-semibold text-sky-900 hover:bg-gray-100 sm:rounded-md sm:inline sm:shadow-sm sm:hover:bg-sky-700 sm:text-sky-100">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="inline w-4 h-4">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+                        </svg>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+    
+
+<main class="max-w-2xl mx-auto px-4 md:px-0  pb-12 ">
+    <div class="prose prose-sky mt-12 max-w-none">
+        <h1>Search Post</h1>
+        <input type="search" placeholder="Search Something" class="block w-full rounded-md border border-gray-300 focus:border-sky-700 focus:ring-sky-700">
+        <hr>
+            <span>4 Result for <b class="text-sky-900">"Javascript some"</b></span>
+        <hr>
+            <article>
+                <p class="flex items-center gap-x-4">
+                    <span>November 4, 2023</span>
+                    <svg viewBox="0 0 2 2" class="h-0.5 w-0.5 fill-current text-sky-500">
+                        <circle cx="1" cy="1" r="1" />
+                    </svg>
+                    
+                        <a href="/tags/javascript">javascript</a>
+                    
+                </p>
+                <a href="http://localhost:1313/javascript-cara-cek-apakah-sebuah-objek-kosong-/-tidak-ada-properti/" class="no-underline">
+                    <h2 class="mt-0 mb-0">Javascript : Cara Cek Apakah Sebuah Objek Kosong / Tidak Ada Properti</h2>
+                </a>
+                <p><p>Objek pada javascript terdiri dari kumpulan properti. Sebuah objek dikatakan kosong jika ia tidak memiliki properti.</p></p>
+                <a href="http://localhost:1313/javascript-cara-cek-apakah-sebuah-objek-kosong-/-tidak-ada-properti/">Read Full Post</a>
+                <hr>
+            </article>
+        
+            <article>
+                <p class="flex items-center gap-x-4">
+                    <span>November 2, 2023</span>
+                    <svg viewBox="0 0 2 2" class="h-0.5 w-0.5 fill-current text-sky-500">
+                        <circle cx="1" cy="1" r="1" />
+                    </svg>
+                    
+                        <a href="/tags/knex">knex</a>
+                    
+                </p>
+                <a href="http://localhost:1313/tes-koneksi-knex-ke-database/" class="no-underline">
+                    <h2 class="mt-0 mb-0">Tes Koneksi Knex Ke Database</h2>
+                </a>
+                <p><p>Tes koneksi ke database terkadang perlu dilakukan salah satunya untuk memastikan konfigurasi koneksi database sudah benar.</p></p>
+                <a href="http://localhost:1313/tes-koneksi-knex-ke-database/">Read Full Post</a>
+                <hr>
+            </article>
+        
+            <article>
+                <p class="flex items-center gap-x-4">
+                    <span>October 30, 2023</span>
+                    <svg viewBox="0 0 2 2" class="h-0.5 w-0.5 fill-current text-sky-500">
+                        <circle cx="1" cy="1" r="1" />
+                    </svg>
+                    
+                        <a href="/tags/laravel">laravel</a>
+                    
+                </p>
+                <a href="http://localhost:1313/laravel-10-join-dengan-beberapa-kondisi/" class="no-underline">
+                    <h2 class="mt-0 mb-0">Laravel 10 Join Dengan Beberapa Kondisi</h2>
+                </a>
+                <p><p>Laravel 10 query builder menyediakan method untuk melakukan join.</p></p>
+                <a href="http://localhost:1313/laravel-10-join-dengan-beberapa-kondisi/">Read Full Post</a>
+                <hr>
+            </article>
+        
+            <article>
+                <p class="flex items-center gap-x-4">
+                    <span>October 15, 2023</span>
+                    <svg viewBox="0 0 2 2" class="h-0.5 w-0.5 fill-current text-sky-500">
+                        <circle cx="1" cy="1" r="1" />
+                    </svg>
+                    
+                        <a href="/tags/laravel">laravel</a>
+                    
+                </p>
+                <a href="http://localhost:1313/melihat-query-sql-yang-dieksekusi-laravel/" class="no-underline">
+                    <h2 class="mt-0 mb-0">Melihat Query SQL Yang Dieksekusi Laravel</h2>
+                </a>
+                <p><p>Melihat query database yang dieksekusi dapat membantu banyak hal, contohnya membantu debugging.</p></p>
+                <a href="http://localhost:1313/melihat-query-sql-yang-dieksekusi-laravel/">Read Full Post</a>
+                <hr>
+            </article>
+        
+            <article>
+                <p class="flex items-center gap-x-4">
+                    <span>October 8, 2023</span>
+                    <svg viewBox="0 0 2 2" class="h-0.5 w-0.5 fill-current text-sky-500">
+                        <circle cx="1" cy="1" r="1" />
+                    </svg>
+                    
+                        <a href="/tags/vue">vue</a>
+                    
+                </p>
+                <a href="http://localhost:1313/cara-modifikasi-null-kolom-yang-sudah-ada-pada-mysql-atau-dengan-laravel/" class="no-underline">
+                    <h2 class="mt-0 mb-0">Cara Modifikasi NULL Kolom Yang Sudah Ada Pada MySQL atau Dengan Laravel</h2>
+                </a>
+                <p><p><code>NULL</code> adalah batasan (<em>constraint</em>) pada sebuah kolom yang menentukan apakah kolom tersebut dapat menyimpan nilai <code>null</code> atau tidak.</p></p>
+                <a href="http://localhost:1313/cara-modifikasi-null-kolom-yang-sudah-ada-pada-mysql-atau-dengan-laravel/">Read Full Post</a>
+                <hr>
+            </article>
+        
+    </div>
+    <div class="flex  justify-end ">
+    
+    
+        <a href="/posts/page/2/" class="flex items-center gap-x-2 text-sky-900">
+            Older            
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
+            </svg>
+            </a>
+        </a>
+    
+</div>
+</main>
+
+
+    <footer class="bg-sky-900 py-4 text-sky-100">
+    <div class="max-w-2xl mx-auto px-4 md:px-0 text-center">
+        <p>
+            Made By <a class="font-bold underline" href="https://ibrahimalanshor.github.io">Ibrahim Al Anshor</a>
+        </p>
+    </div>
+</footer>
+    <script src="http://localhost:1313/js/main.js"></script>
+</body>
+
+</html>
